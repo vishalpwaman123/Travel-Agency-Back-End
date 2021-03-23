@@ -35,17 +35,25 @@ module.exports = {
 
   GetAllPackeges: (data, callBack) => {
     console.log("Controller flag services");
-    pool.query(
-      "select * from PackageData",
-      [],
-      (error, results, fields) => {
-        if (error) {
-          console.log("Controller flag services error");
-          return callBack(error);
-        }
-        console.log("Controller flag services success");
-        return callBack(null, results);
+    pool.query("select * from PackageData", [], (error, results, fields) => {
+      if (error) {
+        console.log("Controller flag services error");
+        return callBack(error);
       }
-    );
+      console.log("Controller flag services success");
+      return callBack(null, results);
+    });
+  },
+
+  GetAllFeedBack: (data, callBack) => {
+    console.log("Controller flag services");
+    pool.query("select * from FeedBackData", [], (error, results, fields) => {
+      if (error) {
+        console.log("Controller flag services error");
+        return callBack(error);
+      }
+      console.log("Controller flag services success");
+      return callBack(null, results);
+    });
   },
 };

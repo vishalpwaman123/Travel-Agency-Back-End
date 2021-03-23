@@ -1,3 +1,5 @@
+//Save All Customer And Admin Data
+
 create table DetailData(
 	user_id int PRIMARY KEY NOT NULL AUTO_INCREMENT, 
 	email varchar(100) NOT NULL UNIQUE, 
@@ -12,3 +14,63 @@ create table DetailData(
 	account_Type varchar(15) NOT NULL,
 	created_Date varchar(50) NOT NULL
 )
+
+//Save Packages all Data
+
+create table PackageData(
+	package_id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	package_Destination varchar(50) NOT NULL,
+	package_Discription varchar(1000) DEFAULT NULL,
+	package_Price varchar(20) NOT NULL,
+	package_Image1 varchar(500) DEFAULT NULL,
+	package_Image2 varchar(500) DEFAULT NULL,
+	package_Image3 varchar(500) DEFAULT NULL,
+	package_Image4 varchar(500) DEFAULT NULL,
+	created_Date varchar(100) NOT NULL
+)
+
+Goa:
+
+insert into PackageData (package_Destination, package_Discription, package_Price, package_Image1, package_Image2, package_Image3, package_Image4, created_Date ) 
+			values("Goa",
+			      "The pearl of the east",
+			      "5999",
+   			      "https://res.cloudinary.com/dzavgoc9w/image/upload/v1616477149/GoaImage3_fcw8qp.jpg",
+			      "https://res.cloudinary.com/dzavgoc9w/image/upload/v1616477139/GoaImage4_fkyosi.jpg",
+			      "https://res.cloudinary.com/dzavgoc9w/image/upload/v1616477136/GoaImage1_er8mfg.jpg",
+			      "https://res.cloudinary.com/dzavgoc9w/image/upload/v1616477150/GoaImage2_pyk5fa.jpg",
+ 			      curdate());
+
+Pune:
+
+
+insert into PackageData (package_Destination, package_Discription, package_Price, package_Image1, package_Image2, package_Image3, package_Image4, created_Date ) 
+			values("Pune",
+			      "Oxford of the East",
+			      "6999",
+   			      "https://res.cloudinary.com/dzavgoc9w/image/upload/v1616479730/PuneImage4_ozhzjq.png",
+			      "https://res.cloudinary.com/dzavgoc9w/image/upload/v1616479709/PuneImage2_bg95d3.jpg",
+			      "https://res.cloudinary.com/dzavgoc9w/image/upload/v1616479689/PuneImage3_wi8235.jpg",
+			      "https://res.cloudinary.com/dzavgoc9w/image/upload/v1616479718/PuneImage1_far73j.jpg",
+ 			      curdate());
+
+insert into PackageData (package_Destination, package_Discription, package_Price, package_Image1, package_Image2, package_Image3, package_Image4, created_Date ) 
+			values("Manali",
+			      "Valley of the Gods",
+			      "7999",
+   			      "https://res.cloudinary.com/dzavgoc9w/image/upload/v1616495140/manaliImage1_o2qcsk.jpg",
+			      "https://res.cloudinary.com/dzavgoc9w/image/upload/v1616495127/manaliImage2_ctc2ds.jpg",
+			      "https://res.cloudinary.com/dzavgoc9w/image/upload/v1616495134/manaliImage4_oncukd.jpg",
+			      "https://res.cloudinary.com/dzavgoc9w/image/upload/v1616495123/manaliImage3_nefyev.jpg",
+ 			      curdate());
+
+FeedBack Table:
+
+Create table FeedBackData(FeedBack_Id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+			  Customer_Name varchar(100) NOT NULL,
+			  Customer_Email varchar(200) NOT NULL,
+			  FeedBack varchar(500) DEFAULT NULL,
+			  Created_date varchar(50) DEFAULT NULL); 
+
+insert into FeedBackData ( Customer_Name , Customer_Email , FeedBack  , Created_date )
+		values ("Vishal", "Vishal@gmail.com", "we Love to Enjoy Pune & we want to come again . Thank for your services", curdate());
