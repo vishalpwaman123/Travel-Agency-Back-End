@@ -26,7 +26,23 @@ module.exports = {
         if (error) {
           console.log("Controller flag services error");
           return callBack(error);
-        } 
+        }
+        console.log("Controller flag services success");
+        return callBack(null, results);
+      }
+    );
+  },
+
+  GetAllPackeges: (data, callBack) => {
+    console.log("Controller flag services");
+    pool.query(
+      "select * from PackageData",
+      [],
+      (error, results, fields) => {
+        if (error) {
+          console.log("Controller flag services error");
+          return callBack(error);
+        }
         console.log("Controller flag services success");
         return callBack(null, results);
       }
