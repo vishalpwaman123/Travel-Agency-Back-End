@@ -29,6 +29,23 @@ create table PackageData(
 	created_Date varchar(100) NOT NULL
 )
 
+//Save Buy Package List
+
+
+create table Buy_Package ( buy_id package_id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+			   email email varchar(100) NOT NULL, 
+			   package_Destination varchar(50) NOT NULL,
+			   created_Date created_Date varchar(100) NOT NULL );
+		 
+
+FeedBack Table:
+
+Create table FeedBackData(FeedBack_Id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+			  Customer_Name varchar(100) NOT NULL,
+			  Customer_Email varchar(200) NOT NULL,
+			  FeedBack varchar(500) DEFAULT NULL,
+			  Created_date varchar(50) DEFAULT NULL); 
+
 Goa:
 
 insert into PackageData (package_Destination, package_Discription, package_Price, package_Image1, package_Image2, package_Image3, package_Image4, created_Date ) 
@@ -64,13 +81,8 @@ insert into PackageData (package_Destination, package_Discription, package_Price
 			      "https://res.cloudinary.com/dzavgoc9w/image/upload/v1616495123/manaliImage3_nefyev.jpg",
  			      curdate());
 
-FeedBack Table:
 
-Create table FeedBackData(FeedBack_Id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-			  Customer_Name varchar(100) NOT NULL,
-			  Customer_Email varchar(200) NOT NULL,
-			  FeedBack varchar(500) DEFAULT NULL,
-			  Created_date varchar(50) DEFAULT NULL); 
 
 insert into FeedBackData ( Customer_Name , Customer_Email , FeedBack  , Created_date )
 		values ("Vishal", "Vishal@gmail.com", "we Love to Enjoy Pune & we want to come again . Thank for your services", curdate());
+
