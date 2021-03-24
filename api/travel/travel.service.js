@@ -112,4 +112,20 @@ module.exports = {
       }
     );
   },
+  SubmitFeedback: (data, callBack) => {
+    console.log("Controller flag services");
+    pool.query(
+      // "select * from DetailData where user_id =?",
+      "insert into FeedBackData (Customer_Name, Customer_Email, FeedBack) values(?,?,?)",
+      [data.Customer_Name, data.Customer_Email, data.FeedBack],
+      (error, results, fields) => {
+        if (error) {
+          console.log("Controller flag services error");
+          return callBack(error);
+        }
+        console.log("Controller flag services success");
+        return callBack(null, results);
+      }
+    );
+  },
 };

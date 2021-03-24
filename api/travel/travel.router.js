@@ -6,6 +6,7 @@ const {
   GetAllCustomers,
   GetUserDetailById,
   addUserDetail,
+  SubmitFeedback,
 } = require("./travel.controller");
 
 const router = require("express").Router(); //Create Router object
@@ -17,6 +18,7 @@ router.get("/GetAllPackeges", GetAllPackeges); //Get All Packages
 router.get("/GetAllFeedBack", GetAllFeedBack); //Get All Feedback
 router.get("/GetAllCustomers", GetAllCustomers);
 router.post("/addUserDetail", addUserDetail);
+router.post("/SubmitFeedback", SubmitFeedback);
 
 console.log("Router Class");
 
