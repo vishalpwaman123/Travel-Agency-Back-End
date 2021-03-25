@@ -7,6 +7,9 @@ const {
   GetUserDetailById,
   addUserDetail,
   SubmitFeedback,
+  GetUserBuyPackages,
+  GetAllUserByPackages,
+  AddBuyUserPackages,
 } = require("./travel.service");
 console.log("Controller Class");
 
@@ -215,6 +218,78 @@ module.exports = {
         return res.status(404).json({
           success: 0,
           data: "User Not Found",
+        });
+      }
+      console.log("Controller flag 3");
+      return res.status(200).json({
+        success: 1,
+        data: results,
+      });
+    });
+  },
+  GetUserBuyPackages: (req, res) => {
+    const body = req.body;
+    console.log("Controller flag 1", body);
+    GetUserBuyPackages(body, (err, results) => {
+      if (err) {
+        console.log("Controller flag 2");
+        console.log(err);
+        return res.status(500).json({
+          success: 0,
+          message: "Database Connection error",
+        });
+      } else if (results == "") {
+        return res.status(404).json({
+          success: 0,
+          data: "User Id Data Not Found",
+        });
+      }
+      console.log("Controller flag 3");
+      return res.status(200).json({
+        success: 1,
+        data: results,
+      });
+    });
+  },
+  GetAllUserByPackages: (req, res) => {
+    const body = req.body;
+    console.log("Controller flag 1", body);
+    GetAllUserByPackages(body, (err, results) => {
+      if (err) {
+        console.log("Controller flag 2");
+        console.log(err);
+        return res.status(500).json({
+          success: 0,
+          message: "Database Connection error",
+        });
+      } else if (results == "") {
+        return res.status(404).json({
+          success: 0,
+          data: "User Id Data Not Found",
+        });
+      }
+      console.log("Controller flag 3");
+      return res.status(200).json({
+        success: 1,
+        data: results,
+      });
+    });
+  },
+  AddBuyUserPackages: (req, res) => {
+    const body = req.body;
+    console.log("Controller flag 1", body);
+    AddBuyUserPackages(body, (err, results) => {
+      if (err) {
+        console.log("Controller flag 2");
+        console.log(err);
+        return res.status(500).json({
+          success: 0,
+          message: "Database Connection error",
+        });
+      } else if (results == "") {
+        return res.status(404).json({
+          success: 0,
+          data: "User Id Data Not Found",
         });
       }
       console.log("Controller flag 3");

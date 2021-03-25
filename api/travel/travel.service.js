@@ -128,4 +128,57 @@ module.exports = {
       }
     );
   },
+  GetUserBuyPackages: (data, callBack) => {
+    console.log("Controller flag services");
+    pool.query(
+      "select * from Buy_Package where user_id =?",
+      // "select * from Buy_Package where ",
+      [data.user_id],
+      (error, results, fields) => {
+        if (error) {
+          console.log("Controller flag services error");
+          return callBack(error);
+        }
+        console.log("Controller flag services success");
+        return callBack(null, results);
+      }
+    );
+  },
+  GetAllUserByPackages: (data, callBack) => {
+    console.log("Controller flag services");
+    pool.query(
+      "select * from Buy_Package",
+      // "select * from Buy_Package where ",
+      [],
+      (error, results, fields) => {
+        if (error) {
+          console.log("Controller flag services error");
+          return callBack(error);
+        }
+        console.log("Controller flag services success");
+        return callBack(null, results);
+      }
+    );
+  },
+  AddBuyUserPackages: (data, callBack) => {
+    console.log("Controller flag services");
+    pool.query(
+      "insert into Buy_Package (user_id, email,mainImage , package_Destination,created_Date ) values (?, ?, ?, ?, ?)",
+      [
+        data.user_id,
+        data.email,
+        data.mainImage,
+        data.package_Destination,
+        datetime,
+      ],
+      (error, results, fields) => {
+        if (error) {
+          console.log("Controller flag services error");
+          return callBack(error);
+        }
+        console.log("Controller flag services success");
+        return callBack(null, results);
+      }
+    );
+  },
 };

@@ -32,10 +32,11 @@ create table PackageData(
 //Save Buy Package List
 
 
-create table Buy_Package ( buy_id package_id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-			   email email varchar(100) NOT NULL, 
+create table Buy_Package ( buy_id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+			   user_id int NOT NULL,
+			   email varchar(100) NOT NULL, 
 			   package_Destination varchar(50) NOT NULL,
-			   created_Date created_Date varchar(100) NOT NULL );
+			   created_Date varchar(100) NOT NULL );
 		 
 
 FeedBack Table:
@@ -85,4 +86,7 @@ insert into PackageData (package_Destination, package_Discription, package_Price
 
 insert into FeedBackData ( Customer_Name , Customer_Email , FeedBack  , Created_date )
 		values ("Vishal", "Vishal@gmail.com", "we Love to Enjoy Pune & we want to come again . Thank for your services", curdate());
+
+
+insert into Buy_Package (user_id, email, package_Destination,created_Date ) values ( 2 , "Vishal@gmail.com", "Pune", curdate());
 
