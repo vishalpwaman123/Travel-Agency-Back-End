@@ -12,6 +12,8 @@ const {
   AddBuyUserPackages,
   AddNewPackagesDetail,
   AdminRestriction,
+  ForgetPassword,
+  ResetPassword,
 } = require("./travel.controller");
 
 const router = require("express").Router(); //Create Router object
@@ -28,7 +30,9 @@ router.post("/GetUserBuyPackages", GetUserBuyPackages); //Get User Buy packages
 router.get("/GetAllUserByPackages", GetAllUserByPackages);
 router.post("/AddBuyUserPackages", AddBuyUserPackages);
 router.post("/AddNewPackagesDetail", AddNewPackagesDetail); // Add new packages
-router.get("/AdminRestriction", AdminRestriction);
+router.get("/AdminRestriction", AdminRestriction); // check Admin Already Exist or not
+router.post("/ForgetPassword", ForgetPassword); 
+router.post("/ResetPassword", ResetPassword);
 
 console.log("Router Class");
 

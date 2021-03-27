@@ -12,6 +12,8 @@ const {
   AddBuyUserPackages,
   AddNewPackagesDetail,
   AdminRestriction,
+  ForgetPassword,
+  ResetPassword,
 } = require("./travel.service");
 console.log("Controller Class");
 
@@ -329,11 +331,6 @@ module.exports = {
     });
   },
   AdminRestriction: (req, res) => {
-    // const body = req.body;
-    // console.log("Controller flag 1", body);
-    // const file = req.files.package_Image1;
-    // const file = req.files;
-    // console.log(file);
     AdminRestriction(req, (err, results) => {
       if (err) {
         console.log("Controller flag 2");
@@ -352,6 +349,56 @@ module.exports = {
         console.log("Controller flag 3");
         return res.status(404).json({
           success: 0,
+          data: results,
+        });
+      }
+    });
+  },
+  ForgetPassword: (req, res) => {
+    const body = req.body;
+    ForgetPassword(body, (err, results) => {
+      if (err) {
+        console.log("Controller flag 2");
+        console.log(err);
+        return res.status(500).json({
+          success: 0,
+          message: "Database Connection error",
+        });
+      } else if (results == "") {
+        console.log("Account Not Found");
+        return res.status(404).json({
+          success: 0,
+          data: "Account Id Not Found",
+        });
+      } else {
+        console.log("Controller flag 3");
+        return res.status(200).json({
+          success: 1,
+          data: results,
+        });
+      }
+    });
+  },
+  ResetPassword: (req, res) => {
+    const body = req.body;
+    ResetPassword(body, (err, results) => {
+      if (err) {
+        console.log("Controller flag 2");
+        console.log(err);
+        return res.status(500).json({
+          success: 0,
+          message: "Database Connection error",
+        });
+      } else if (results == "") {
+        console.log("Account Not Found");
+        return res.status(404).json({
+          success: 0,
+          data: "Account Id Not Found",
+        });
+      } else {
+        console.log("Controller flag 3");
+        return res.status(200).json({
+          success: 1,
           data: results,
         });
       }

@@ -244,12 +244,40 @@ module.exports = {
       }
     );
   },
-
   AdminRestriction: async (req, callBack) => {
-    
     pool.query(
       "select * from DetailData where account_Type='Admin'",
       [],
+      (error, results, fields) => {
+        if (error) {
+          console.log("Controller flag services error");
+          return callBack(error);
+        }
+        console.log("Controller flag services success");
+        return callBack(null, results);
+      }
+    );
+  },
+  ForgetPassword: (data, callBack) => {
+    console.log("Controller flag services");
+    pool.query(
+      "select * from DetailData where email =?",
+      [data.email],
+      (error, results, fields) => {
+        if (error) {
+          console.log("Controller flag services error");
+          return callBack(error);
+        }
+        console.log("Controller flag services success");
+        return callBack(null, results);
+      }
+    );
+  },
+  ResetPassword: (data, callBack) => {
+    console.log("Controller flag services");
+    pool.query(
+      "update DetailData set password = ? where user_id = ?",
+      [data.password, data.user_id],
       (error, results, fields) => {
         if (error) {
           console.log("Controller flag services error");
