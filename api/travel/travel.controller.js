@@ -10,6 +10,8 @@ const {
   GetUserBuyPackages,
   GetAllUserByPackages,
   AddBuyUserPackages,
+  AddNewPackagesDetail,
+  AdminRestriction,
 } = require("./travel.service");
 console.log("Controller Class");
 
@@ -297,6 +299,62 @@ module.exports = {
         success: 1,
         data: results,
       });
+    });
+  },
+  AddNewPackagesDetail: (req, res) => {
+    // const body = req.body;
+    // console.log("Controller flag 1", body);
+    // const file = req.files.package_Image1;
+    // const file = req.files;
+    // console.log(file);
+    AddNewPackagesDetail(req, (err, results) => {
+      if (err) {
+        console.log("Controller flag 2");
+        console.log(err);
+        return res.status(500).json({
+          success: 0,
+          message: "Database Connection error",
+        });
+      } else if (results == "") {
+        return res.status(404).json({
+          success: 0,
+          data: "User Id Data Not Found",
+        });
+      }
+      console.log("Controller flag 3");
+      return res.status(200).json({
+        success: 1,
+        data: results,
+      });
+    });
+  },
+  AdminRestriction: (req, res) => {
+    // const body = req.body;
+    // console.log("Controller flag 1", body);
+    // const file = req.files.package_Image1;
+    // const file = req.files;
+    // console.log(file);
+    AdminRestriction(req, (err, results) => {
+      if (err) {
+        console.log("Controller flag 2");
+        console.log(err);
+        return res.status(500).json({
+          success: 0,
+          message: "Database Connection error",
+        });
+      } else if (results == "") {
+        console.log("Admin Not Found");
+        return res.status(200).json({
+          success: 1,
+          data: "Admin Id Data Not Found",
+        });
+      } else {
+        console.log("Controller flag 3");
+        return res.status(404).json({
+          success: 0,
+          data: results,
+        });
+      }
     });
   },
 };

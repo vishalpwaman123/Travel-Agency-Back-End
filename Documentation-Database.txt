@@ -34,7 +34,8 @@ create table PackageData(
 
 create table Buy_Package ( buy_id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
 			   user_id int NOT NULL,
-			   email varchar(100) NOT NULL, 
+			   email varchar(100) NOT NULL,
+			   mainImage varchar(500) DEFAULT NULL, 
 			   package_Destination varchar(50) NOT NULL,
 			   created_Date varchar(100) NOT NULL );
 		 
@@ -88,5 +89,10 @@ insert into FeedBackData ( Customer_Name , Customer_Email , FeedBack  , Created_
 		values ("Vishal", "Vishal@gmail.com", "we Love to Enjoy Pune & we want to come again . Thank for your services", curdate());
 
 
-insert into Buy_Package (user_id, email, package_Destination,created_Date ) values ( 2 , "Vishal@gmail.com", "Pune", curdate());
+insert into Buy_Package (user_id, email,mainImage , package_Destination,created_Date ) 
+		values ( 2 ,
+			 "Vishal@gmail.com",
+			 "https://res.cloudinary.com/dzavgoc9w/image/upload/v1616479730/PuneImage4_ozhzjq.png",
+			 "Pune",
+			 curdate());
 

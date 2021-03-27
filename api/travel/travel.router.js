@@ -10,6 +10,8 @@ const {
   GetUserBuyPackages,
   GetAllUserByPackages,
   AddBuyUserPackages,
+  AddNewPackagesDetail,
+  AdminRestriction,
 } = require("./travel.controller");
 
 const router = require("express").Router(); //Create Router object
@@ -25,6 +27,8 @@ router.post("/SubmitFeedback", SubmitFeedback); //Submitting feed in database
 router.post("/GetUserBuyPackages", GetUserBuyPackages); //Get User Buy packages
 router.get("/GetAllUserByPackages", GetAllUserByPackages);
 router.post("/AddBuyUserPackages", AddBuyUserPackages);
+router.post("/AddNewPackagesDetail", AddNewPackagesDetail); // Add new packages
+router.get("/AdminRestriction", AdminRestriction);
 
 console.log("Router Class");
 
